@@ -32,10 +32,12 @@ menu login
 
 
 menu Register
-(![](menu Register.png))
+(![https://drive.google.com/drive/my-drive]())
+
 
 
 menu chat 
+
 
 
 menu kelola user 
