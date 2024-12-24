@@ -20,7 +20,7 @@ Aplikasi ini juga menyediakan fitur penyimpanan data, dimana informasi pengguna 
 
 Aplikasi ini dirancang untuk memudahkan interaksi antar pengguna dengan keamanan data yang terjamin. Dengan antarmuka yang sederhana dan fitur yang mudah digunakan, aplikasi ini sangat cocok untuk digunakan dalam berbagai kebutuhan komunikasi online.
 
-## fitur apliakasi sederhana saya 
+## fitur aplikasi sederhana saya 
 
  menu Dasboard
 ![menu Dasboard]( )
