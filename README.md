@@ -32,7 +32,7 @@ menu login
 
 
 menu Register
-([ggh](https://drive.google.com/file/d/13ZQiLfQdcxh-Apd0iOJ0tX-JdcpC0sbI/view?usp=sharing)
+([ggh](https://github.com/Hanif304/Project-Web/blob/master/menu%20Register.png)
 
 
 
