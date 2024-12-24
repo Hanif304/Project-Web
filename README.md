@@ -22,13 +22,11 @@ Aplikasi ini dirancang untuk memudahkan interaksi antar pengguna dengan keamanan
 
 ## fitur apliakasi sederhana saya 
 
- 
-menu Dasboard
-![hutan]( )
-
+ menu Dasboard
+![menu Dasboard]( )
 
 menu login 
-![hutan]( )
+![menu login]( )
 
 menu Register
 
@@ -40,7 +38,8 @@ menu chat git
 
 menu kelola user 
 
-![hutan]( )
+![menu kelola user]( )
+
 ## Email 
 
 
