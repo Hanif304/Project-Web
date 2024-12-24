@@ -32,7 +32,7 @@ Aplikasi ini dirancang untuk memudahkan interaksi antar pengguna dengan keamanan
 
 ## menu Register
 
-![hutan](https://github.com/Hanif304/Project-Web/blob/master/menu%20Register.png)
+![menu Register](https://github.com/Hanif304/Project-Web/blob/master/menu%20Register.png)
 
 ## menu chat git
 
@@ -41,6 +41,6 @@ Aplikasi ini dirancang untuk memudahkan interaksi antar pengguna dengan keamanan
 ## menu kelola user 
 
 ![hutan]( )
-# Email 
+## Email 
 
 
