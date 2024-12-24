@@ -32,7 +32,7 @@ menu login
 
 
 menu Register
-([ggh](https://github.com/Hanif304/Project-Web/blob/master/menu%20Register.png)
+![hutan](https://github.com/Hanif304/Project-Web/blob/master/menu%20Register.png)
 
 
 
