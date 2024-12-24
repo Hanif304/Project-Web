@@ -22,4 +22,15 @@ Aplikasi ini dirancang untuk memudahkan interaksi antar pengguna dengan keamanan
 
 ## fitur apliakasi sederhana saya 
 
+ 
+menu login
+()
 
+menu Register
+()
+
+menu chat 
+()
+
+menu kelola user 
+() 
