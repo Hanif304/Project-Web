@@ -13,10 +13,10 @@ Menu Chat
 Fitur chat memungkinkan pengguna untuk berkomunikasi dengan pengguna lain secara langsung dalam aplikasi. Fitur ini mendukung pesan teks yang dapat dikirim dan diterima secara real-time.
 
 Menu Logout
-Pengguna dapat keluar dari aplikasi dengan menggunakan menu logout untuk menjaga privasi dan keamanan akun mereka.
+Pengguna dapat keluar dari aplikasi dengan menggunakan menu logout untuk menjaga privasi dan keamanan akun ini .
 
 Penyimpanan Data
-Aplikasi ini juga menyediakan fitur penyimpanan data, dimana informasi pengguna seperti data profil dan riwayat chat disimpan dengan aman di dalam sistem. Penyimpanan data dilakukan secara efisien, sehingga pengguna tidak perlu khawatir kehilangan informasi penting.
+Aplikasi ini juga menyediakan fitur penyimpanan data, dimana informasi pengguna seperti chat disimpan dengan aman di dalam sistem. Penyimpanan data dilakukan secara efisien, sehingga pengguna tidak perlu khawatir kehilangan informasi penting.
 
 Aplikasi ini dirancang untuk memudahkan interaksi antar pengguna dengan keamanan data yang terjamin. Dengan antarmuka yang sederhana dan fitur yang mudah digunakan, aplikasi ini sangat cocok untuk digunakan dalam berbagai kebutuhan komunikasi online.
 
