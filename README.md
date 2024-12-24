@@ -30,16 +30,16 @@ Aplikasi ini dirancang untuk memudahkan interaksi antar pengguna dengan keamanan
 ## menu login 
 
 
-### menu Register
+## menu Register
 
 ![hutan](https://github.com/Hanif304/Project-Web/blob/master/menu%20Register.png)
 
 
 
 
-menu chat git
+## menu chat git
 
 
 
-menu kelola user 
+## menu kelola user 
 
