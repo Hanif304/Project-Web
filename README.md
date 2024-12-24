@@ -23,12 +23,11 @@ Aplikasi ini dirancang untuk memudahkan interaksi antar pengguna dengan keamanan
 ## fitur apliakasi sederhana saya 
 
  
-menu Dasboard
-(![](menu Dasboarad.png))
+## menu Dasboard
 
 
-menu login 
-(![](menu login.png))
+
+## menu login 
 
 
 ### menu Register
