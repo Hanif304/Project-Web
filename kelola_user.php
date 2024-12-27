@@ -6,6 +6,10 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'admin') {
     header('Location: index.php');
     exit;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0862bb2e610a97e07eb010769128d5912406bc79
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete_user'])) {
     $id = $_POST['id'];
 

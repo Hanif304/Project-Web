@@ -4,7 +4,11 @@ include 'koneksi.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
+<<<<<<< HEAD
     $password = $_POST['password']; // Tidak menggunakan md5()
+=======
+    $password = md5($_POST['password']);
+>>>>>>> 0862bb2e610a97e07eb010769128d5912406bc79
 
     $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
     $stmt->execute([$username, $password]);
@@ -20,7 +24,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0862bb2e610a97e07eb010769128d5912406bc79
 <!DOCTYPE html>
 <html lang="en">
 <head>

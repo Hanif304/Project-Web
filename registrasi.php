@@ -1,6 +1,7 @@
 <?php
 include 'koneksi.php';
 
+<<<<<<< HEAD
 // Query untuk menambahkan kolom email dan alamat jika belum ada
 try {
     $conn->exec("ALTER TABLE users ADD COLUMN email VARCHAR(255) AFTER username, ADD COLUMN address TEXT AFTER email");
@@ -23,6 +24,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Redirect ke index.php setelah registrasi berhasil
     header("Location: index.php");
     exit();
+=======
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $name = $_POST['name'];
+    $username = $_POST['username'];
+    $password = md5($_POST['password']);
+    $role = 'user';
+
+    $stmt = $conn->prepare("INSERT INTO users (name, username, password, role) VALUES (?, ?, ?, ?)");
+    $stmt->execute([$name, $username, $password, $role]);
+
+    echo "<div class='message'>Registrasi berhasil! <a href='index.php'>Login</a></div>";
+>>>>>>> 0862bb2e610a97e07eb010769128d5912406bc79
 }
 ?>
 
@@ -33,6 +46,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrasi</title>
     <style>
+<<<<<<< HEAD
+=======
+        <!--  -->
+>>>>>>> 0862bb2e610a97e07eb010769128d5912406bc79
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f9;
@@ -53,17 +70,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         h2 {
             margin-bottom: 20px;
         }
+<<<<<<< HEAD
         input, textarea {
+=======
+        input {
+>>>>>>> 0862bb2e610a97e07eb010769128d5912406bc79
             width: 90%;
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ddd;
             border-radius: 5px;
         }
+<<<<<<< HEAD
         textarea {
             height: 60px;
             resize: none;
         }
+=======
+>>>>>>> 0862bb2e610a97e07eb010769128d5912406bc79
         button {
             width: 95%;
             padding: 10px;
@@ -100,12 +124,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <form method="POST">
             <input type="text" name="name" placeholder="Nama" required><br>
             <input type="text" name="username" placeholder="Username" required><br>
+<<<<<<< HEAD
             <input type="email" name="email" placeholder="Email" required><br>
             <textarea name="address" placeholder="Alamat" required></textarea><br>
             <input type="password" name="password" placeholder="Password" required><br>
             <button type="submit">Daftar</button>
         </form>
         <a href="index.php" class="link">Sudah Punya Akun? Login</a>
+=======
+            <input type="password" name="password" placeholder="Password" required><br>
+            <button type="submit">Daftar</button>
+        </form>
+	 <a href="index.php" class="link">Sudah Punya Akun? Login</a>
+>>>>>>> 0862bb2e610a97e07eb010769128d5912406bc79
     </div>
 </body>
 </html>

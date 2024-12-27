@@ -35,6 +35,7 @@ $user = $_SESSION['user'];
         h2, h3 {
             color: #333;
         }
+<<<<<<< HEAD
         table {
             width: 100%;
             border-collapse: collapse;
@@ -58,6 +59,21 @@ $user = $_SESSION['user'];
         }
         button:hover {
             background: #0056b3;
+=======
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            padding: 8px 0;
+>>>>>>> 0862bb2e610a97e07eb010769128d5912406bc79
         }
         .logout {
             display: inline-block;
@@ -78,6 +94,7 @@ $user = $_SESSION['user'];
 <div class="container">
     <?php if ($user['role'] == 'admin'): ?>
         <h2>Dashboard Admin</h2>
+<<<<<<< HEAD
         <h3>Daftar Pengguna:</h3>
         <table>
             <thead>
@@ -106,10 +123,28 @@ $user = $_SESSION['user'];
                 ?>
             </tbody>
         </table>
+=======
+        <a href="kelola_user.php">Kelola User</a><br><br>
+        <h3>Daftar Pengguna:</h3>
+        <ul>
+            <?php
+            $stmt = $conn->query("SELECT * FROM users");
+            $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if ($users) {
+                foreach ($users as $u) {
+                    echo "<li><a href='chat.php?user_id={$u['id']}'>{$u['name']}</a></li>";
+                }
+            } else {
+                echo "<li>Tidak ada pengguna terdaftar.</li>";
+            }
+            ?>
+        </ul>
+>>>>>>> 0862bb2e610a97e07eb010769128d5912406bc79
     <?php else: ?>
         <h2>Dashboard User</h2>
         <p>Selamat datang, <?= $user['name'] ?>!</p>
         <h3>Daftar Teman:</h3>
+<<<<<<< HEAD
         <table>
             <thead>
                 <tr>
@@ -136,6 +171,22 @@ $user = $_SESSION['user'];
                 ?>
             </tbody>
         </table>
+=======
+        <ul>
+            <?php
+            $stmt = $conn->prepare("SELECT * FROM users WHERE id != ?");
+            $stmt->execute([$user['id']]);
+            $friends = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if ($friends) {
+                foreach ($friends as $friend) {
+                    echo "<li><a href='chat.php?user_id={$friend['id']}'>{$friend['name']}</a></li>";
+                }
+            } else {
+                echo "<li>Tidak ada teman tersedia.</li>";
+            }
+            ?>
+        </ul>
+>>>>>>> 0862bb2e610a97e07eb010769128d5912406bc79
     <?php endif; ?>
 
     <a href="logout.php" class="logout">Logout</a>

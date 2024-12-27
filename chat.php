@@ -48,6 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['message'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat with <?= htmlspecialchars($friend['name']) ?></title>
     <style>
+<<<<<<< HEAD
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f9;
@@ -138,10 +139,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['message'])) {
         }
         .back-link a:hover {
             text-decoration: underline;
+=======
+        #chat-box {
+            height: 400px;
+            overflow-y: scroll;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        #chat-box p {
+            padding: 5px;
+            margin: 5px 0;
+        }
+        .message-sender {
+            color: blue;
+        }
+        .message-receiver {
+            color: green;
+>>>>>>> 0862bb2e610a97e07eb010769128d5912406bc79
         }
     </style>
 </head>
 <body>
+<<<<<<< HEAD
     <div class="chat-container">
         <div class="chat-header">
             Chat dengan <?= htmlspecialchars($friend['name']) ?>
@@ -163,5 +183,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['message'])) {
             <a href="dashboard.php">Kembali</a>
         </div>
     </div>
+=======
+    <h2>Chat dengan <?= htmlspecialchars($friend['name']) ?></h2>
+    
+    <div id="chat-box">
+        <?php foreach ($messages as $message): ?>
+            <p class="<?= $message['sender_id'] == $user['id'] ? 'message-sender' : 'message-receiver' ?>">
+                <strong><?= $message['sender_id'] == $user['id'] ? 'Anda' : $friend['name'] ?>:</strong>
+                <?= htmlspecialchars($message['message']) ?>
+            </p>
+        <?php endforeach; ?>
+    </div>
+    
+    <form method="POST">
+        <textarea name="message" placeholder="Tulis pesan..." required></textarea><br>
+        <button type="submit">Kirim</button>
+    </form>
+
+    <br>
+    <a href="dashboard.php">Kembali ke Dashboard</a>
+>>>>>>> 0862bb2e610a97e07eb010769128d5912406bc79
 </body>
 </html>
