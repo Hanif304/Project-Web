@@ -42,11 +42,9 @@ menu kelola user
 
 ![menu kelola user](https://github.com/Hanif304/Project-Web/blob/master/tampilan%20kelola%20user.png)
 
-
 ## Database
 
-![Database](https://drive.google.com/file/d/1IAa2I2bO_5_0s84zcSqNS3291e5LHdv2/view?usp=sharing)
-
+(https://drive.google.com/file/d/1IAa2I2bO_5_0s84zcSqNS3291e5LHdv2/view?usp=sharing)
 
 ## Email 
 
