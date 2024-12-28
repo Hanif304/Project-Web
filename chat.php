@@ -48,7 +48,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['message'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat with <?= htmlspecialchars($friend['name']) ?></title>
     <style>
-<<<<<<< HEAD
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f9;
@@ -61,10 +60,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['message'])) {
         }
         .chat-container {
             background: #fff;
-            border-radius: 50px;
+            border-radius: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 800px;
+            max-width: 700px;
             display: flex;
             flex-direction: column;
             overflow: hidden;
@@ -78,7 +77,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['message'])) {
         }
         #chat-box {
             flex-grow: 1;
-            padding: 200px;
+            padding: 10px;
+            padding-top: 300px;
             overflow-y: auto;
             background-color: #f9f9f9;
             border-bottom: 1px solid #ddd;
@@ -95,14 +95,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['message'])) {
         }
         .chat-bubble {
             max-width: 70%;
-            padding: 10px 150px;
+            padding: 10px 15px;
             border-radius: 15px;
             background: #007bff;
             color: white;
             word-wrap: break-word;
         }
         .message-receiver .chat-bubble {
-            background:rgb(31, 175, 86);
+            background: #e5e5ea;
             color: black;
         }
         form {
@@ -139,29 +139,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['message'])) {
         }
         .back-link a:hover {
             text-decoration: underline;
-=======
-        #chat-box {
-            height: 400px;
-            overflow-y: scroll;
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-        #chat-box p {
-            padding: 5px;
-            margin: 5px 0;
-        }
-        .message-sender {
-            color: blue;
-        }
-        .message-receiver {
-            color: green;
->>>>>>> 0862bb2e610a97e07eb010769128d5912406bc79
         }
     </style>
 </head>
 <body>
-<<<<<<< HEAD
     <div class="chat-container">
         <div class="chat-header">
             Chat dengan <?= htmlspecialchars($friend['name']) ?>
@@ -183,25 +164,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['message'])) {
             <a href="dashboard.php">Kembali</a>
         </div>
     </div>
-=======
-    <h2>Chat dengan <?= htmlspecialchars($friend['name']) ?></h2>
-    
-    <div id="chat-box">
-        <?php foreach ($messages as $message): ?>
-            <p class="<?= $message['sender_id'] == $user['id'] ? 'message-sender' : 'message-receiver' ?>">
-                <strong><?= $message['sender_id'] == $user['id'] ? 'Anda' : $friend['name'] ?>:</strong>
-                <?= htmlspecialchars($message['message']) ?>
-            </p>
-        <?php endforeach; ?>
-    </div>
-    
-    <form method="POST">
-        <textarea name="message" placeholder="Tulis pesan..." required></textarea><br>
-        <button type="submit">Kirim</button>
-    </form>
-
-    <br>
-    <a href="dashboard.php">Kembali ke Dashboard</a>
->>>>>>> 0862bb2e610a97e07eb010769128d5912406bc79
 </body>
 </html>

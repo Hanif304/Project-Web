@@ -19,23 +19,27 @@ $user = $_SESSION['user'];
     <title>Dashboard</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             background-color: #f4f4f9;
             margin: 0;
             padding: 0;
         }
         .container {
-            max-width: 800px;
-            margin: 20px auto;
+            max-width: 1000px;
+            margin: 50px auto;
             padding: 20px;
             background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-        h2, h3 {
+        h2 {
+            text-align: center;
+            color: #007BFF;
+        }
+        h3 {
             color: #333;
+            margin-top: 20px;
         }
-<<<<<<< HEAD
         table {
             width: 100%;
             border-collapse: collapse;
@@ -43,49 +47,53 @@ $user = $_SESSION['user'];
         }
         table th, table td {
             border: 1px solid #ddd;
-            padding: 10px;
+            padding: 15px;
             text-align: left;
+            font-size: 14px;
         }
         table th {
-            background-color: #f4f4f9;
+            background-color: #007BFF;
+            color: white;
+        }
+        table tbody tr:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+        table tbody tr:hover {
+            background-color: #f1f1f1;
         }
         button {
             background: #007BFF;
             color: white;
             border: none;
-            padding: 5px 10px;
+            padding: 8px 12px;
             border-radius: 5px;
+            font-size: 14px;
             cursor: pointer;
+            transition: background 0.3s;
         }
         button:hover {
             background: #0056b3;
-=======
-        a {
-            text-decoration: none;
-            color: #007BFF;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        ul li {
-            padding: 8px 0;
->>>>>>> 0862bb2e610a97e07eb010769128d5912406bc79
         }
         .logout {
             display: inline-block;
-            margin-top: 10px;
-            padding: 10px;
+            margin-top: 20px;
+            padding: 10px 20px;
             background: #ff4d4d;
             color: white;
             border-radius: 5px;
             text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            transition: background 0.3s;
         }
         .logout:hover {
             background: #cc0000;
+        }
+        .welcome-message {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 18px;
+            color: #333;
         }
     </style>
 </head>
@@ -94,8 +102,7 @@ $user = $_SESSION['user'];
 <div class="container">
     <?php if ($user['role'] == 'admin'): ?>
         <h2>Dashboard Admin</h2>
-<<<<<<< HEAD
-        <h3>Daftar Pengguna:</h3>
+        <h3>Daftar Pengguna</h3>
         <table>
             <thead>
                 <tr>
@@ -123,28 +130,10 @@ $user = $_SESSION['user'];
                 ?>
             </tbody>
         </table>
-=======
-        <a href="kelola_user.php">Kelola User</a><br><br>
-        <h3>Daftar Pengguna:</h3>
-        <ul>
-            <?php
-            $stmt = $conn->query("SELECT * FROM users");
-            $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            if ($users) {
-                foreach ($users as $u) {
-                    echo "<li><a href='chat.php?user_id={$u['id']}'>{$u['name']}</a></li>";
-                }
-            } else {
-                echo "<li>Tidak ada pengguna terdaftar.</li>";
-            }
-            ?>
-        </ul>
->>>>>>> 0862bb2e610a97e07eb010769128d5912406bc79
     <?php else: ?>
         <h2>Dashboard User</h2>
-        <p>Selamat datang, <?= $user['name'] ?>!</p>
-        <h3>Daftar Teman:</h3>
-<<<<<<< HEAD
+        <p class="welcome-message">Selamat datang, <strong><?= htmlspecialchars($user['name']) ?></strong>!</p>
+        <h3>Daftar Teman</h3>
         <table>
             <thead>
                 <tr>
@@ -166,27 +155,11 @@ $user = $_SESSION['user'];
                         </tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='3'>Tidak ada teman tersedia.</td></tr>";
+                    echo "<tr><td colspan='2'>Tidak ada teman tersedia.</td></tr>";
                 }
                 ?>
             </tbody>
         </table>
-=======
-        <ul>
-            <?php
-            $stmt = $conn->prepare("SELECT * FROM users WHERE id != ?");
-            $stmt->execute([$user['id']]);
-            $friends = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            if ($friends) {
-                foreach ($friends as $friend) {
-                    echo "<li><a href='chat.php?user_id={$friend['id']}'>{$friend['name']}</a></li>";
-                }
-            } else {
-                echo "<li>Tidak ada teman tersedia.</li>";
-            }
-            ?>
-        </ul>
->>>>>>> 0862bb2e610a97e07eb010769128d5912406bc79
     <?php endif; ?>
 
     <a href="logout.php" class="logout">Logout</a>
