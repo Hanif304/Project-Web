@@ -44,7 +44,12 @@ menu kelola user
 
 ## Database
 
+<<<<<<< HEAD
 (https://drive.google.com/file/d/1IAa2I2bO_5_0s84zcSqNS3291e5LHdv2/view?usp=sharing)
+=======
+https://drive.google.com/file/d/1IAa2I2bO_5_0s84zcSqNS3291e5LHdv2/view?usp=sharing
+
+>>>>>>> f1ba56d0c7bae189a32eff9fa2670a4d840cf54b
 
 ## Email 
 
