@@ -155,10 +155,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['message'])) {
                 </div>
             <?php endforeach; ?>
         </div>
+
         <form method="POST">
-            <textarea name="message" placeholder="Tulis pesan..." rows="1" required></textarea>
+            <textarea name="message" placeholder="Tulis pesan..." rows="1" required></textarea> 
             <button type="submit">Kirim</button>
         </form>
+
+
         <div class="back-link">
             <a href="dashboard.php">Kembali</a>
         </div>
