@@ -8,7 +8,6 @@ if (!isset($_SESSION['user'])) {
 }
 
 $user = $_SESSION['user'];
-
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +15,7 @@ $user = $_SESSION['user'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Kelola User</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -32,7 +31,7 @@ $user = $_SESSION['user'];
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        h2, h3 {
+        h2 {
             color: #333;
         }
 
@@ -67,13 +66,6 @@ $user = $_SESSION['user'];
         a:hover {
             text-decoration: underline;
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        ul li {
-            padding: 8px 0;
-        }
         .logout {
             display: inline-block;
             margin-top: 10px;
@@ -91,102 +83,40 @@ $user = $_SESSION['user'];
 <body>
 
 <div class="container">
-    <?php if ($user['role'] == 'admin'): ?>
-        <h2>Dashboard Admin</h2>
-
-        <h3>Daftar Pengguna:</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nama</th>
-                    <th>Username</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $stmt = $conn->query("SELECT * FROM users");
-                $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                if ($users) {
-                    foreach ($users as $u) {
-                        echo "
-                        <tr>
-                            <td>{$u['name']}</td>
-                            <td>{$u['username']}</td>
-                            <td><button onclick=\"location.href='chat.php?user_id={$u['id']}'\">Chat</button></td>
-                        </tr>";
-                    }
-                } else {
-                    echo "<tr><td colspan='3'>Tidak ada pengguna terdaftar.</td></tr>";
-                }
-                ?>
-            </tbody>
-        </table>
-
-        <a href="kelola_user.php">Kelola User</a><br><br>
-        <h3>Daftar Pengguna:</h3>
-        <ul>
+    <h2>Kelola User</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nama</th>
+                <th>Username</th>
+                
+              
+            </tr>
+        </thead>
+        <tbody>
             <?php
             $stmt = $conn->query("SELECT * FROM users");
             $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             if ($users) {
-                foreach ($users as $u) {
-                    echo "<li><a href='chat.php?user_id={$u['id']}'>{$u['name']}</a></li>";
+                foreach ($users as $user) {
+                    echo "<tr>
+                        <td>{$user['name']}</td>
+                        <td>{$user['username']}</td>
+                       
+                        
+                    </tr>";
                 }
             } else {
-                echo "<li>Tidak ada pengguna terdaftar.</li>";
+                echo "<tr><td colspan='4'>Tidak ada pengguna terdaftar.</td></tr>";
             }
             ?>
-        </ul>
-    <?php else: ?>
-        <h2>Dashboard User</h2>
-        <p>Selamat datang, <?= $user['name'] ?>!</p>
-        <h3>Daftar Teman:</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Username</th>
-                    <th>Aktivitas Anda</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $stmt = $conn->prepare("SELECT * FROM users WHERE id != ?");
-                $stmt->execute([$user['id']]);
-                $friends = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                if ($friends) {
-                    foreach ($friends as $friend) {
-                        echo "
-                        <tr>
-                            <td>{$friend['username']}</td>
-                            <td><button onclick=\"location.href='chat.php?user_id={$friend['id']}'\">Chat</button></td>
-                        </tr>";
-                    }
-                } else {
-                    echo "<tr><td colspan='3'>Tidak ada teman tersedia.</td></tr>";
-                }
-                ?>
-            </tbody>
-        </table>
+        </tbody>
+    </table>
+    <a href="dashboard.php"  class="Kembali">Kembali</a>
+    <a href="registrasi.php" class="registrasi">Registrasi</a>
+    <a href="logout.php"     class="logout">Logout</a>
+    
 
-        <ul>
-            <?php
-            $stmt = $conn->prepare("SELECT * FROM users WHERE id != ?");
-            $stmt->execute([$user['id']]);
-            $friends = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            if ($friends) {
-                foreach ($friends as $friend) {
-                    echo "<li><a href='chat.php?user_id={$friend['id']}'>{$friend['name']}</a></li>";
-                }
-            } else {
-                echo "<li>Tidak ada teman tersedia.</li>";
-            }
-            ?>
-        </ul>
-    <?php endif; ?>
-
-    <a href="logout.php" class="logout">Logout</a>
 </div>
-
 </body>
 </html>

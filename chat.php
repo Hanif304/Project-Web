@@ -38,7 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['message'])) {
     header("Location: chat.php?user_id=$receiver_id");
     exit;
 }
-
 ?>
 
 <!DOCTYPE html>

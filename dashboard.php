@@ -101,8 +101,8 @@ $user = $_SESSION['user'];
 
 <div class="container">
     <?php if ($user['role'] == 'admin'): ?>
-        <h2>Dashboard Admin</h2>
-        <h3>Daftar Pengguna</h3>
+        <h2>Dashboard </h2>
+        <h3>Daftar admin</h3>
         <table>
             <thead>
                 <tr>
@@ -130,8 +130,12 @@ $user = $_SESSION['user'];
                 ?>
             </tbody>
         </table>
+
+
+
+
     <?php else: ?>
-        <h2>Dashboard User</h2>
+        <h2>Dashboard </h2>
         <p class="welcome-message">Selamat datang, <strong><?= htmlspecialchars($user['name']) ?></strong>!</p>
         <h3>Daftar Teman</h3>
         <table>
@@ -162,8 +166,12 @@ $user = $_SESSION['user'];
         </table>
     <?php endif; ?>
 
+    <a href="kelola_user.php">Kelola User</a>
     <a href="logout.php" class="logout">Logout</a>
 </div>
+
+
+
 
 </body>
 </html>
