@@ -1,21 +1,31 @@
 <?php
 session_start();
-include 'koneksi.php';
+include 'koneksi.php'; // Menghubungkan ke file koneksi database
+
+$error = ''; // Menyiapkan variabel untuk menampilkan pesan error
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST['username'];
-    $password = md5($_POST['password']);
+    $username = trim($_POST['username']); // Menghilangkan spasi di awal dan akhir input
+    $password = md5($_POST['password']); // Memproses password dengan MD5 (disarankan untuk menggunakan hashing yang lebih aman seperti bcrypt, tetapi ini tetap dipertahankan untuk kebutuhan contoh)
 
-    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
-    $stmt->execute([$username, $password]);
-    $user = $stmt->fetch();
+    try {
+        // Persiapkan query untuk memeriksa username dan password di database
+        $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
+        $stmt->execute([$username, $password]); // Menjalankan query dengan parameter username dan password
+        $user = $stmt->fetch(); // Mengambil hasil pencarian user
 
-    if ($user) {
-        $_SESSION['user'] = $user;
-        header('Location: dashboard.php');
-        exit;
-    } else {
-        $error = "Username atau password salah!";
+        // Jika ditemukan user
+        if ($user) {
+            $_SESSION['user'] = $user; // Menyimpan informasi user ke sesi
+            header('Location: dashboard.php'); // Mengarahkan ke halaman dashboard
+            exit;
+        } else {
+            $error = "Username atau password salah!"; // Menampilkan pesan error jika login gagal
+        }
+    } catch (PDOException $e) {
+        // Menangani error pada koneksi database
+        $error = "Terjadi kesalahan pada server.";
+        error_log("Database error: " . $e->getMessage()); // Menyimpan error log
     }
 }
 ?>
@@ -90,13 +100,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <?php if (!empty($error)): ?>
             <p class="error"><?php echo $error; ?></p>
         <?php endif; ?>
-        <form method="POST">
-            <input type="text" name="username" placeholder="Username" required><br>
-            <input type="password" name="password" placeholder="Password" required><br>
+        <!-- Form login dengan autocomplete="new-password" dan nama input unik -->
+        <form method="POST" autocomplete="off">
+            <input type="text" name="username" placeholder="Username" required autocomplete="off" id="username"><br>
+            <input type="password" name="password" placeholder="Password" required autocomplete="new-password" id="password"><br>
             <button type="submit">Login</button>
         </form>
         <a href="registrasi.php" class="link">Belum punya akun? Registrasi di sini</a>
     </div>
 </body>
 </html>
-

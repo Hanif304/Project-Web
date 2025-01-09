@@ -7,9 +7,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = md5($_POST['password']);
     $role = 'user';
 
+    // Menyimpan data registrasi ke database
     $stmt = $conn->prepare("INSERT INTO users (name, username, password, role) VALUES (?, ?, ?, ?)");
     $stmt->execute([$name, $username, $password, $role]);
 
+    // Menampilkan pesan setelah registrasi berhasil
     echo "<div class='message'>Registrasi berhasil! <a href='index.php'>Login</a></div>";
 }
 ?>
@@ -21,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrasi</title>
     <style>
-        <!--  -->
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f9;
@@ -82,13 +83,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <div class="form-container">
         <h2>Registrasi</h2>
-        <form method="POST">
-            <input type="text" name="name" placeholder="Nama" required><br>
-            <input type="text" name="username" placeholder="Username" required><br>
-            <input type="password" name="password" placeholder="Password" required><br>
+        <!-- Menambahkan autocomplete="off" pada form dan setiap input -->
+        <form method="POST" autocomplete="off">
+            <input type="text" name="name" placeholder="Nama" required autocomplete="off"><br>
+            <input type="text" name="username" placeholder="Username" required autocomplete="off" id="username"><br>
+            <input type="password" name="password" placeholder="Password" required autocomplete="new-password" id="password"><br>
             <button type="submit">Daftar</button>
         </form>
-	 <a href="index.php" class="link">Sudah Punya Akun? Login</a>
+        <a href="index.php" class="link">Sudah Punya Akun? Login</a>
     </div>
 </body>
 </html>
