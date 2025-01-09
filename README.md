@@ -44,7 +44,7 @@ menu kelola user
 
 ## Database
 
-(https://drive.google.com/file/d/1IAa2I2bO_5_0s84zcSqNS3291e5LHdv2/view?usp=sharing)
+https://drive.google.com/file/d/1IAa2I2bO_5_0s84zcSqNS3291e5LHdv2/view?usp=sharing
 
 ## Email 
 
